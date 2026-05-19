@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,200;1,9..144,300;1,9..144,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Dancing+Script:wght@400;500;600;700&family=Italiana&family=Inter:wght@300;400;500&display=swap');
+
+.font-script {
+  font-family: 'Dancing Script', 'Cormorant Garamond', cursive;
+  font-weight: 500;
+}
+
+.font-elegant {
+  font-family: 'Cormorant Garamond', 'Italiana', Georgia, serif;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.font-display {
+  font-family: 'Fraunces', 'Cormorant Garamond', Georgia, serif;
+  font-optical-sizing: auto;
+}
+
+.font-serif-italic {
+  font-family: 'Cormorant Garamond', 'Fraunces', Georgia, serif;
+  font-style: italic;
+}
+
+.title-gradient {
+  background: linear-gradient(120deg, #ffffff 0%, #f5e6c8 35%, #e8b86b 60%, #d4a55f 80%, #ffffff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 2px 18px rgba(232, 184, 107, 0.25));
+  animation: title-shimmer 8s ease-in-out infinite;
+}
+
+@keyframes title-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.title-italic-gold {
+  background: linear-gradient(120deg, #f5e6c8 0%, #e8b86b 40%, #fff4d6 70%, #d4a55f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 1px 12px rgba(232, 184, 107, 0.5));
+}
