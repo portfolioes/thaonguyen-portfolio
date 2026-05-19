@@ -3,7 +3,7 @@ import {
   getMaxBytes,
   getMediaSlot,
   type MediaSlot,
-} from "../../src/app/lib/mediaRegistry.js";
+} from "../../src/app/lib/mediaRegistry";
 
 const EXT_BY_MIME: Record<string, string> = {
   "image/jpeg": "jpg",
