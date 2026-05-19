@@ -1,5 +1,5 @@
-import { clearAdminSessionCookie } from "../_lib/adminAuth.js";
-import { requireMethod, sendJson } from "../_lib/http.js";
+import { clearAdminSessionCookie } from "../_lib/adminAuth";
+import { requireMethod, sendJson } from "../_lib/http";
 
 export default function handler(req: any, res: any) {
   if (!requireMethod(req, res, "POST")) return;

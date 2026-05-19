@@ -1,7 +1,7 @@
-import { isAdminRequest } from "../_lib/adminAuth.js";
-import { readJson, requireMethod, sendJson } from "../_lib/http.js";
-import { getMediaSlot, MEDIA_BUCKET, PORTFOLIO_ASSETS_TABLE } from "../../src/app/lib/mediaRegistry.js";
-import { getSupabaseAdmin } from "../_lib/supabaseAdmin.js";
+import { isAdminRequest } from "../_lib/adminAuth";
+import { readJson, requireMethod, sendJson } from "../_lib/http";
+import { getMediaSlot, MEDIA_BUCKET, PORTFOLIO_ASSETS_TABLE } from "../../src/app/lib/mediaRegistry";
+import { getSupabaseAdmin } from "../_lib/supabaseAdmin";
 
 export default async function handler(req: any, res: any) {
   if (!requireMethod(req, res, "DELETE")) return;
