@@ -40,6 +40,14 @@ const GOLD_LIGHT = "#e8b86b";
 const CREAM = "#f5e6c8";
 const MUTED = "#b8a07c";
 
+const COVER_SUNBEAMS = [
+  { id: 1, left: 58, width: 18, rotate: 22, opacity: 0.16, delay: 0.2, duration: 16 },
+  { id: 2, left: 66, width: 28, rotate: 17, opacity: 0.24, delay: 1.1, duration: 19 },
+  { id: 3, left: 76, width: 14, rotate: 27, opacity: 0.18, delay: 0.7, duration: 14 },
+  { id: 4, left: 84, width: 24, rotate: 12, opacity: 0.2, delay: 1.8, duration: 21 },
+  { id: 5, left: 93, width: 16, rotate: 31, opacity: 0.14, delay: 0.4, duration: 17 },
+];
+
 /* ─────────── 1. COVER ─────────── */
 export function CoverSection() {
   return (
@@ -59,6 +67,46 @@ export function CoverSection() {
             "radial-gradient(circle at 75% 30%, rgba(232,184,107,0.22), transparent 50%), radial-gradient(circle at 20% 80%, rgba(212,165,95,0.12), transparent 55%)",
         }}
       />
+      {/* soft sunbeams */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0.34, 0.52, 0.34], x: [0, -10, 0] }}
+        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -inset-[24vh] pointer-events-none"
+        style={{
+          background:
+            "conic-gradient(from 198deg at 82% 0%, transparent 0deg, rgba(255,238,194,0.18) 9deg, transparent 20deg, transparent 28deg, rgba(232,184,107,0.15) 42deg, transparent 56deg, transparent 66deg, rgba(255,244,214,0.11) 82deg, transparent 102deg, transparent 360deg)",
+          filter: "blur(12px)",
+          mixBlendMode: "screen",
+        }}
+      />
+      {COVER_SUNBEAMS.map((ray) => (
+        <motion.div
+          key={ray.id}
+          animate={{
+            opacity: [ray.opacity * 0.55, ray.opacity, ray.opacity * 0.55],
+            x: [0, -8 + ray.id * 2, 0],
+            scaleX: [0.94, 1.08, 0.94],
+          }}
+          transition={{
+            duration: ray.duration,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: ray.delay,
+          }}
+          className="absolute -top-[30vh] -bottom-[30vh] origin-top pointer-events-none"
+          style={{
+            left: `${ray.left}%`,
+            marginLeft: `${ray.width / -2}vw`,
+            width: `${ray.width}vw`,
+            background:
+              "linear-gradient(90deg, transparent 0%, rgba(255,244,214,0.20) 42%, rgba(232,184,107,0.12) 52%, transparent 100%)",
+            filter: "blur(18px)",
+            mixBlendMode: "screen",
+            rotate: `${ray.rotate}deg`,
+          }}
+        />
+      ))}
       {/* floating particles */}
       {[...Array(8)].map((_, i) => (
         <motion.span
@@ -1186,10 +1234,10 @@ export function CaseStudy1() {
         </FadeIn>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-20 max-w-5xl mx-auto">
-          <VideoFrame slotId="case1.video1" title="Wedding Highlight Reel" duration="0:45" aspect="aspect-[9/16]" />
-          <VideoFrame slotId="case1.video2" title="Behind the Scenes" duration="0:30" aspect="aspect-[9/16]" />
-          <VideoFrame slotId="case1.video3" title="Couple Story Edit" duration="1:15" aspect="aspect-[9/16]" />
-          <VideoFrame slotId="case1.video4" title="Seasonal Promo Reel" duration="0:20" aspect="aspect-[9/16]" />
+          <VideoFrame slotId="case1.video1" title="Wedding Highlight Reel" aspect="aspect-[9/16]" />
+          <VideoFrame slotId="case1.video2" title="Behind the Scenes" aspect="aspect-[9/16]" />
+          <VideoFrame slotId="case1.video3" title="Couple Story Edit" aspect="aspect-[9/16]" />
+          <VideoFrame slotId="case1.video4" title="Seasonal Promo Reel" aspect="aspect-[9/16]" />
         </div>
 
         {/* SCOPE OF WORK */}

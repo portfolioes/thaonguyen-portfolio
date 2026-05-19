@@ -57,10 +57,10 @@ export const mediaSlots: MediaSlot[] = [
   { id: "case1.detail", type: "image", section: "Case Study 1 - 1 Nha Studio", label: "Detail", hint: "Close-up", aspect: "aspect-[4/5]" },
   { id: "case1.story1", type: "image", section: "Case Study 1 - 1 Nha Studio", label: "Story 01", hint: "Crop", aspect: "aspect-square" },
   { id: "case1.story2", type: "image", section: "Case Study 1 - 1 Nha Studio", label: "Story 02", hint: "Crop", aspect: "aspect-square" },
-  { id: "case1.video1", type: "video", section: "Case Study 1 - 1 Nha Studio", label: "Wedding Highlight Reel", hint: "0:45", aspect: "aspect-[9/16]", title: "Wedding Highlight Reel" },
-  { id: "case1.video2", type: "video", section: "Case Study 1 - 1 Nha Studio", label: "Behind the Scenes", hint: "0:30", aspect: "aspect-[9/16]", title: "Behind the Scenes" },
-  { id: "case1.video3", type: "video", section: "Case Study 1 - 1 Nha Studio", label: "Couple Story Edit", hint: "1:15", aspect: "aspect-[9/16]", title: "Couple Story Edit" },
-  { id: "case1.video4", type: "video", section: "Case Study 1 - 1 Nha Studio", label: "Seasonal Promo Reel", hint: "0:20", aspect: "aspect-[9/16]", title: "Seasonal Promo Reel" },
+  { id: "case1.video1", type: "video", section: "Case Study 1 - 1 Nha Studio", label: "Wedding Highlight Reel", hint: "Vertical reel", aspect: "aspect-[9/16]", title: "Wedding Highlight Reel" },
+  { id: "case1.video2", type: "video", section: "Case Study 1 - 1 Nha Studio", label: "Behind the Scenes", hint: "Vertical reel", aspect: "aspect-[9/16]", title: "Behind the Scenes" },
+  { id: "case1.video3", type: "video", section: "Case Study 1 - 1 Nha Studio", label: "Couple Story Edit", hint: "Vertical reel", aspect: "aspect-[9/16]", title: "Couple Story Edit" },
+  { id: "case1.video4", type: "video", section: "Case Study 1 - 1 Nha Studio", label: "Seasonal Promo Reel", hint: "Vertical reel", aspect: "aspect-[9/16]", title: "Seasonal Promo Reel" },
   ...[
     { id: 1, aspect: "aspect-[6/5]" },
     { id: 2, aspect: "aspect-[6/5]" },
@@ -109,4 +109,3 @@ export function getMaxBytes(type: MediaType) {
 export function getAcceptValue(type: MediaType) {
   return getAllowedMimeTypes(type).join(",");
 }
-
