@@ -1247,15 +1247,25 @@ export function CaseStudy1() {
             </h3>
           </div>
         </FadeIn>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-20">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <PhotoFrame
-              key={`poster-${i}`}
-              slotId={`case1.poster${i + 1}`}
-              label={`Poster ${String(i + 1).padStart(2, "0")}`}
-              hint="Canva design"
-              aspect="aspect-[3/4]"
-            />
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-4 mb-20">
+          {[
+            { id: 1, aspect: "aspect-[6/5]", span: "col-span-2 md:col-span-3" },
+            { id: 2, aspect: "aspect-[6/5]", span: "col-span-2 md:col-span-3" },
+            { id: 3, aspect: "aspect-square", span: "col-span-1 md:col-span-2" },
+            { id: 4, aspect: "aspect-square", span: "col-span-1 md:col-span-2" },
+            { id: 5, aspect: "aspect-square", span: "col-span-2 md:col-span-2" },
+            { id: 6, aspect: "aspect-[6/5]", span: "col-span-1 md:col-span-2" },
+            { id: 7, aspect: "aspect-[6/5]", span: "col-span-1 md:col-span-2" },
+            { id: 8, aspect: "aspect-[6/5]", span: "col-span-2 md:col-span-2" },
+          ].map((cfg) => (
+            <div key={`poster-${cfg.id}`} className={cfg.span}>
+              <PhotoFrame
+                slotId={`case1.poster${cfg.id}`}
+                label={`Poster ${String(cfg.id).padStart(2, "0")}`}
+                hint={cfg.aspect === "aspect-square" ? "Square" : "3600x3000"}
+                aspect={cfg.aspect}
+              />
+            </div>
           ))}
         </div>
 

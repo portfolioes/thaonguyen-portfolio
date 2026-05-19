@@ -61,13 +61,22 @@ export const mediaSlots: MediaSlot[] = [
   { id: "case1.video2", type: "video", section: "Case Study 1 - 1 Nha Studio", label: "Behind the Scenes", hint: "0:30", aspect: "aspect-[9/16]", title: "Behind the Scenes" },
   { id: "case1.video3", type: "video", section: "Case Study 1 - 1 Nha Studio", label: "Couple Story Edit", hint: "1:15", aspect: "aspect-[9/16]", title: "Couple Story Edit" },
   { id: "case1.video4", type: "video", section: "Case Study 1 - 1 Nha Studio", label: "Seasonal Promo Reel", hint: "0:20", aspect: "aspect-[9/16]", title: "Seasonal Promo Reel" },
-  ...Array.from({ length: 6 }, (_, i) => ({
-    id: `case1.poster${i + 1}`,
+  ...[
+    { id: 1, aspect: "aspect-[6/5]" },
+    { id: 2, aspect: "aspect-[6/5]" },
+    { id: 3, aspect: "aspect-square" },
+    { id: 4, aspect: "aspect-square" },
+    { id: 5, aspect: "aspect-square" },
+    { id: 6, aspect: "aspect-[6/5]" },
+    { id: 7, aspect: "aspect-[6/5]" },
+    { id: 8, aspect: "aspect-[6/5]" },
+  ].map((cfg) => ({
+    id: `case1.poster${cfg.id}`,
     type: "image" as const,
     section: "Case Study 1 - 1 Nha Studio",
-    label: `Poster ${String(i + 1).padStart(2, "0")}`,
-    hint: "Canva design",
-    aspect: "aspect-[3/4]",
+    label: `Poster ${String(cfg.id).padStart(2, "0")}`,
+    hint: cfg.aspect === "aspect-square" ? "Square" : "3600x3000",
+    aspect: cfg.aspect,
   })),
   ...Array.from({ length: 10 }, (_, i) => ({
     id: `case1.viewcount${i + 1}`,
