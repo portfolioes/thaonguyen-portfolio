@@ -1,5 +1,5 @@
-import { createAdminSessionCookie } from "../_lib/adminAuth";
-import { readJson, requireMethod, sendJson } from "../_lib/http";
+import { createAdminSessionCookie } from "../_lib/adminAuth.js";
+import { readJson, requireMethod, sendJson } from "../_lib/http.js";
 
 export default async function handler(req: any, res: any) {
   if (!requireMethod(req, res, "POST")) return;

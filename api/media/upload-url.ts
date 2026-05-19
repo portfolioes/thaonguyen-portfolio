@@ -1,8 +1,8 @@
-import { isAdminRequest } from "../_lib/adminAuth";
-import { readJson, requireMethod, sendJson } from "../_lib/http";
-import { buildStoragePath, validateUploadInput } from "../_lib/mediaValidation";
-import { getSupabaseAdmin } from "../_lib/supabaseAdmin";
-import { MEDIA_BUCKET } from "../../src/app/lib/mediaRegistry";
+import { isAdminRequest } from "../_lib/adminAuth.js";
+import { readJson, requireMethod, sendJson } from "../_lib/http.js";
+import { buildStoragePath, validateUploadInput } from "../_lib/mediaValidation.js";
+import { getSupabaseAdmin } from "../_lib/supabaseAdmin.js";
+import { MEDIA_BUCKET } from "../../src/app/lib/mediaRegistry.js";
 
 export default async function handler(req: any, res: any) {
   if (!requireMethod(req, res, "POST")) return;
