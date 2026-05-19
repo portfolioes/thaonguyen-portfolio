@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { motion } from "motion/react";
 import { Play, Film } from "lucide-react";
 import { useMediaAsset } from "../lib/MediaProvider";
@@ -18,6 +19,19 @@ export function VideoFrame({
   accent,
 }: Props) {
   const asset = useMediaAsset(slotId);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  };
 
   return (
     <motion.div
@@ -26,6 +40,8 @@ export function VideoFrame({
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6 }}
       whileHover="hover"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       className={`group relative ${aspect} rounded-2xl overflow-hidden cursor-pointer`}
       style={{
         background:
@@ -36,10 +52,12 @@ export function VideoFrame({
     >
       {asset?.media_type === "video" && asset.publicUrl && (
         <video
+          ref={videoRef}
           src={asset.publicUrl}
           title={asset.title || title}
           className="absolute inset-0 w-full h-full object-cover z-[1]"
-          controls
+          muted
+          loop
           playsInline
           preload="metadata"
         />
