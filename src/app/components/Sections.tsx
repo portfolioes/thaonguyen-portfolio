@@ -587,9 +587,7 @@ export function SkillsSection() {
       items: [
         { label: "Google Workspace", level: "Basic-Int", value: 60 },
         { label: "Notion", level: "Basic", value: 45 },
-        { label: "Trello", level: "Basic", value: 45 },
         { label: "TikTok Analytics", level: "Basic", value: 40 },
-        { label: "GA4", level: "Basic", value: 35 },
       ],
     },
     {
@@ -606,7 +604,7 @@ export function SkillsSection() {
     { label: "VSTEP B2 Certificate", note: "English proficiency" },
     { label: "Canva & CapCut", note: "Daily production tools" },
     { label: "Meta Business Suite", note: "Hands-on fanpage ops" },
-    { label: "Continuous learning", note: "Notion, GA4, TikTok Analytics" },
+    { label: "Continuous learning", note: "Notion, TikTok Analytics" },
   ];
 
   return (
