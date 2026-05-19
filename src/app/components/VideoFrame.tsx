@@ -56,7 +56,6 @@ export function VideoFrame({
           src={asset.publicUrl}
           title={asset.title || title}
           className="absolute inset-0 w-full h-full object-cover z-[1]"
-          muted
           loop
           playsInline
           preload="metadata"
