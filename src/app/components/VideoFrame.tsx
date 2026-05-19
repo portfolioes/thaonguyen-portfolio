@@ -6,7 +6,6 @@ import { useMediaAsset } from "../lib/MediaProvider";
 type Props = {
   slotId?: string;
   title?: string;
-  duration?: string;
   aspect?: string;
   accent?: string;
 };
@@ -14,7 +13,6 @@ type Props = {
 export function VideoFrame({
   slotId,
   title = "Project Video",
-  duration = "0:30",
   aspect = "aspect-video",
   accent,
 }: Props) {
@@ -127,23 +125,6 @@ export function VideoFrame({
         <span style={{ color: "#d4a55f", fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase" }}>
           Reel
         </span>
-      </div>
-
-      {/* bottom info */}
-      <div className="absolute bottom-5 left-5 right-5 z-10 flex items-end justify-between gap-3 pointer-events-none">
-        <div style={{ color: "#f5e6c8", fontSize: "13px", lineHeight: 1.3 }}>{title}</div>
-        <div
-          className="px-2 py-0.5 rounded shrink-0"
-          style={{
-            background: "rgba(0,0,0,0.5)",
-            color: "#e8b86b",
-            fontSize: "10px",
-            letterSpacing: "0.1em",
-            fontVariantNumeric: "tabular-nums",
-          }}
-        >
-          {duration}
-        </div>
       </div>
 
       {/* hover lift overlay */}
