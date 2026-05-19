@@ -28,7 +28,7 @@ values (
   'portfolio-media',
   'portfolio-media',
   true,
-  83886080,
+  314572800,
   array[
     'image/jpeg',
     'image/png',
