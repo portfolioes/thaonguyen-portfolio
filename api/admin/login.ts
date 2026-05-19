@@ -6,6 +6,7 @@ export default async function handler(req: any, res: any) {
 
   try {
     const expectedPassword = process.env.ADMIN_UPLOAD_PASSWORD;
+    console.log(expectedPassword)
     if (!expectedPassword) {
       sendJson(res, 500, { error: "ADMIN_UPLOAD_PASSWORD is not configured." });
       return;
