@@ -31,7 +31,7 @@ Use a long random value for `ADMIN_SESSION_SECRET`.
 Open `/admin`, sign in with `ADMIN_UPLOAD_PASSWORD`, and upload media into each slot.
 
 Images accept `jpg`, `png`, `webp` up to 8MB.
-Videos accept `mp4`, `webm` up to 80MB.
+Videos accept `mp4`, `webm` up to 300MB.
 
 The public portfolio reads `portfolio_assets` with the anon key. If Supabase env vars are missing, the site still renders the original placeholders.
 

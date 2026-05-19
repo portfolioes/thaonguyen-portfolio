@@ -33,6 +33,7 @@ import { SectionShell, FadeIn } from "./SectionShell";
 import { PhotoFrame } from "./PhotoFrame";
 import { VideoFrame } from "./VideoFrame";
 import { CircularProgress } from "./CircularProgress";
+import { AnimatedNumber } from "./AnimatedNumber";
 
 const GOLD = "#d4a55f";
 const GOLD_LIGHT = "#e8b86b";
@@ -790,6 +791,13 @@ export function ExperienceSection() {
     { icon: Megaphone, role: "Marketing Assistant", org: "Kim Oanh Group", note: "Short-term marketing support in real estate" },
     { icon: CalendarRange, role: "Event Member", org: "Academic Club", note: "National Business Startup Competition S.XI & XII" },
   ];
+  const stats = [
+    { value: 4, padStart: 2, suffix: "", l: "Project Roles", d: "Across creative, video, marketing, event" },
+    { value: 12, suffix: "+", l: "Months of Practice", d: "Real client and team work" },
+    { value: 30, suffix: "+", l: "Visual Deliverables", d: "Reels, posters, fanpage assets" },
+    { value: 2, padStart: 2, suffix: "", l: "Event Seasons", d: "National Startup Competition XI & XII" },
+  ];
+
   return (
     <SectionShell id="experience" eyebrow="09 · Experience" title="From content to event operations." variant="dark">
       <div className="relative">
@@ -840,12 +848,7 @@ export function ExperienceSection() {
         <div
           className="mt-16 grid md:grid-cols-4 gap-4"
         >
-          {[
-            { n: "04", l: "Project Roles", d: "Across creative, video, marketing, event" },
-            { n: "12+", l: "Months of Practice", d: "Real client and team work" },
-            { n: "30+", l: "Visual Deliverables", d: "Reels, posters, fanpage assets" },
-            { n: "02", l: "Event Seasons", d: "National Startup Competition XI & XII" },
-          ].map((s, i) => (
+          {stats.map((s, i) => (
             <div
               key={s.l}
               className="p-6 rounded-2xl relative overflow-hidden"
@@ -859,7 +862,7 @@ export function ExperienceSection() {
                 style={{ background: "radial-gradient(circle, rgba(232,184,107,0.12), transparent 70%)" }}
               />
               <div className="font-display title-italic-gold" style={{ fontSize: "44px", fontWeight: 400, lineHeight: 1 }}>
-                {s.n}
+                <AnimatedNumber value={s.value} suffix={s.suffix} padStart={s.padStart} />
               </div>
               <div className="mt-3" style={{ color: GOLD, fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase" }}>
                 {s.l}
@@ -1028,6 +1031,12 @@ export function CaseStudy1() {
     "How to take feedback from clients without losing creative direction",
     "How to balance speed of execution with attention to detail",
   ];
+  const heroStats = [
+    { value: 128, suffix: "K", l: "Brand Facebook Followers", icon: Users },
+    { value: 16.4, suffix: "K", decimals: 1, l: "Brand TikTok Followers", icon: Film },
+    { value: 100, suffix: "+", l: "Visual Assets", icon: Palette },
+    { text: "Main", l: "Content & Editing Role", icon: Check },
+  ];
 
   return (
     <section
@@ -1084,12 +1093,7 @@ export function CaseStudy1() {
             </div>
 
             <div className="grid grid-cols-2 gap-3">
-              {[
-                { n: "128K", l: "Brand Facebook Followers", icon: Users },
-                { n: "16.4K", l: "Brand TikTok Followers", icon: Film },
-                { n: "100+", l: "Visual Assets", icon: Palette },
-                { n: "Main", l: "Content & Editing Role", icon: Check },
-              ].map((s) => (
+              {heroStats.map((s) => (
                 <div
                   key={s.l}
                   className="p-4 rounded-xl relative overflow-hidden"
@@ -1100,7 +1104,11 @@ export function CaseStudy1() {
                 >
                   <s.icon className="w-3.5 h-3.5 absolute top-3 right-3" style={{ color: GOLD, opacity: 0.7 }} />
                   <div className="font-display title-italic-gold" style={{ fontSize: "30px", fontWeight: 400, lineHeight: 1 }}>
-                    {s.n}
+                    {"value" in s ? (
+                      <AnimatedNumber value={s.value} suffix={s.suffix} decimals={s.decimals} />
+                    ) : (
+                      s.text
+                    )}
                   </div>
                   <div className="mt-2" style={{ color: MUTED, fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase" }}>
                     {s.l}
@@ -1135,7 +1143,10 @@ export function CaseStudy1() {
             </div>
             <span className="w-px h-5" style={{ background: "rgba(212,165,95,0.3)" }} />
             <div style={{ color: CREAM, fontSize: "13px" }}>
-              <span style={{ color: GOLD_LIGHT }}>Facebook</span> 128K · <span style={{ color: GOLD_LIGHT }}>TikTok</span> 16.4K
+              <span style={{ color: GOLD_LIGHT }}>Facebook</span>{" "}
+              <AnimatedNumber value={128} suffix="K" /> ·{" "}
+              <span style={{ color: GOLD_LIGHT }}>TikTok</span>{" "}
+              <AnimatedNumber value={16.4} suffix="K" decimals={1} />
             </div>
             <span className="w-px h-5" style={{ background: "rgba(212,165,95,0.3)" }} />
             <div style={{ color: MUTED, fontSize: "13px" }}>
@@ -1270,7 +1281,7 @@ export function CaseStudy1() {
                 textTransform: "uppercase",
               }}
             >
-              16.4K Followers · Multiple Viral Reels
+              <AnimatedNumber value={16.4} suffix="K" decimals={1} /> Followers · Multiple Viral Reels
             </div>
           </div>
         </FadeIn>
