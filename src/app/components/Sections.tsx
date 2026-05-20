@@ -1801,7 +1801,7 @@ export function ContactSection() {
         <FadeIn delay={0.4}>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {[
-              { icon: Mail, label: "Email", value: "nguyenachong@gmail.com", href: "mailto:nguyenachong@gmail.com" },
+              { icon: Mail, label: "Email", value: "tnguyen06.work@gmail.com", href: "mailto:tnguyen06.work@gmail.com" },
               { icon: Phone, label: "Phone", value: "0947 066 442", href: "tel:+84947066442" },
               { icon: Film, label: "TikTok", value: "Thảo Nguyên", href: "https://www.tiktok.com/@nzt.nguyen_?is_from_webapp=1&sender_device=pc" },
               { icon: FileSpreadsheet, label: "Resumé", value: "View on Drive", href: "https://drive.google.com/drive/folders/1OsA14M9CsTXR2L21dZB8Pxg15G0wTxrP?usp=sharing" },
